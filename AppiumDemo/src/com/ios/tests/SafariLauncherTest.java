@@ -19,6 +19,7 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 public class SafariLauncherTest {
 
 	public static void main(String[] args) throws MalformedURLException, InterruptedException{
+		System.out.println("Starting Safari test in iPad");
 		AppiumDriver wd=null;		
 		DesiredCapabilities capabilities = new DesiredCapabilities();
 		capabilities.setCapability("appium-version", "1.0");
@@ -61,6 +62,7 @@ public class SafariLauncherTest {
 		wd.findElement(By.xpath("(//a[contains(@class,'remove-item')])[1]")).click();
 		Thread.sleep(10000);
 		wd.quit();
+		System.out.println("Test Completed");
 
 	}
 

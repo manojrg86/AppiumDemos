@@ -61,6 +61,9 @@ public class SafariLauncherTest {
 		Thread.sleep(10000);
 		wd.findElement(By.xpath("(//a[contains(@class,'remove-item')])[1]")).click();
 		Thread.sleep(10000);
+		wd.findElement(By.xpath("//button[contains(text(),'Remove Item')]")).click();
+		Thread.sleep(10000);
+		wd.close();
 		wd.quit();
 		System.out.println("Test Completed");
 

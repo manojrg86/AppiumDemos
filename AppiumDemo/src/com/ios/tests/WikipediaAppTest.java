@@ -15,6 +15,7 @@ import java.util.concurrent.TimeUnit;
 
 public class WikipediaAppTest {
 	public static void main(String[] args) throws MalformedURLException {
+		System.out.println("Starting Wikipedia app test in iPad");
 		WebDriver wd=null;
 		DesiredCapabilities capabilities = new DesiredCapabilities();
 		capabilities.setCapability("appium-version", "1.0");
@@ -34,6 +35,7 @@ public class WikipediaAppTest {
 		wd.findElement(By.name("Search")).click();
 		wd.findElement(By.name("Cancel")).click();
 		wd.quit();
+		System.out.println("Test completed");
 
 	}
 }

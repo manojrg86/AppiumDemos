@@ -1,0 +1,39 @@
+<!DOCTYPE project >
+
+<project name="appiumdemo" default="common.compile" basedir=".">
+
+
+	<property name="src" location="${basedir}/src" />
+	<property name="lib" location="${basedir}/lib" />
+	<path id="build.classpath">
+		<fileset dir="${lib}">
+			<include name="selenium-server-standalone-2.44.0.jar" />
+			<include name="java-client-2.1.0.jar" />
+		</fileset>
+	</path>
+
+	<target name="common.compile">
+		<echo message="compiling" />
+		<delete dir="${test-classes}" quiet="true" />
+		<mkdir dir="${test-classes}" />
+		<javac destdir="${test-classes}" classpathref="build.classpath"
+			debug="false" target="1.7" encoding="iso-8859-1" fork="true">
+			<src path="${src}" />
+		</javac>
+	</target>
+
+	<target name="run.SafariTest" depends="common.compile">
+		<java classname="com.ios.tests.SafariLauncherTest" classpathref="build.classpath"
+			classpath="${test-classes}">
+			<sysproperty key="java.util.logging.config.file" value="logging.properties" />
+		</java>
+	</target>
+
+	<target name="run.WikiApp" depends="common.compile">
+		<java classname="com.ios.tests.WikipediaAppTest" classpathref="build.classpath"
+			classpath="${test-classes}">
+			<sysproperty key="java.util.logging.config.file" value="logging.properties" />
+		</java>
+	</target>
+
+</project>
